@@ -1,0 +1,110 @@
+// Colors & BG's ---
+$bgc: #000;
+$bg: #1E1E1E;
+$bg_dark: #1D2735;
+$font: #FFF;
+$font_dark: #1D1D1B;
+$font_2: #2D2835;
+$titles: #FFF;
+$gray: #B3B5B6;
+
+$primary: rgba(171, 205, 229, 1);
+$primary_hover: darken($primary, 10%);
+$primary_active: darken($primary, 16%);
+
+
+$link: $primary;
+$link_hover: $primary_hover;
+$link_active: $primary_active;
+$link_border: $primary_hover;
+$link_border_hover: transparent;
+
+$border: #dbdbdb;
+$border_light: #F1F1F1;
+$devider: #d6d6d6;
+
+$valid: #25a670;
+
+$input_border: #D4D4D4;
+$input_hover: darken($input_border, 15%);
+$input_focus: $primary;
+$input_shadow: #f6f6f6;
+$jq_border: #a3a3a3;
+$jq_hover: darken($jq_border,15%);
+$jq_focus: $primary;
+
+
+// Layouts
+$inner: 1660px;
+$gutter: 50px;
+$col_gutter: 12px;
+$block_margin: 0 0 25px;
+
+
+// Grid
+$breakpoints: ("xl":1440,"lg":1260,"md":1024,"sm":768,"xs":599,"us":400);
+
+
+// Typography ---
+$fontsize: 24;
+$weight: 400;
+$basefont: 'Franklin Gothic Book';
+$headingsfont: 'Franklin Gothic Demi';
+$lh: 1.42;
+$th: 1.42;
+$paragraph_margin: 0px 0px 18px;
+
+// headings
+$headings_font_family: $headingsfont;
+$headings_margin: 40px 0px 40px;
+$headings_font_weight: 500;
+$headings_color: $titles;
+$headings_text_transform: none;
+$h1: 72;
+$h2: 54;
+$h3: 40;
+$h4: 30;
+$h5: 24;
+$h6: $fontsize;
+
+$block_heading_font_size: 24;
+$block_heading_font_weight: 700;
+
+// article typography
+$article_font_size: 18;
+$article_line_height: (22/$article_font_size);
+$article_paragraph_margin: $paragraph_margin;
+$article_img_margin: $paragraph_margin;
+$article_font_weight: $weight;
+
+
+// Buttons & Inputs ---
+$btn_font_size: 24;
+$btn_font_size_mini: 20;
+$btn_font_weight: 400;
+$btn_text_transform: none;
+$btn_height: 76px;
+$btn_height_big: 70px;
+$btn_height_mini: 72px;
+$btn_paddings: 0px 30px;
+$btn_border_width: 1px;
+$btn_border_color: #FFF;
+$btn_border_radius: 8px;
+$btn_bg: transparent;
+$btn_color: #FFF;
+
+$checkbox_size: 18px;
+$checkbox_border_radius: 2px;
+$radio_size: $checkbox_size;
+
+$trn_d: .45s; //transition-delay
+
+
+@mixin fz($f_size) {
+	font-size: $f_size + px;
+	font-size: $f_size/16 + rem;
+}
+
+@mixin ls($lsp) {
+	letter-spacing: $lsp/1000 + em;
+}

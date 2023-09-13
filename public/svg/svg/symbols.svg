@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="position:absolute">
+	
+		<symbol id="arrow-left" viewBox="0 0 28 28">
+			<path d="M17.5 5.25L8.75 14l8.75 8.75" stroke="#F1F8FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+		</symbol>
+	
+		<symbol id="arrow-right" viewBox="0 0 28 28">
+			<path d="M10.5 5.25L19.25 14l-8.75 8.75" stroke="#F1F8FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+		</symbol>
+	
+		<symbol id="close" viewBox="0 0 28 28">
+			<path d="M21.875 6.125l-15.75 15.75M21.875 21.875L6.125 6.125" stroke="#DBF0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+		</symbol>
+	
+		<symbol id="glass" viewBox="0 0 33 32">
+			<path d="M15 25c5.799 0 10.5-4.701 10.5-10.5S20.799 4 15 4 4.5 8.701 4.5 14.5 9.201 25 15 25zM22.424 21.925L28.499 28" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+		</symbol>
+	
+</svg>

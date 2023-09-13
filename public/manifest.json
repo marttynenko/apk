@@ -1,0 +1,44 @@
+{
+  "short_name": "АПК",
+  "name": "АПК Promo",
+  "lang": "ru",
+  "description": "Описание сайта",
+  "start_url": ".",
+  "background_color": "#000",
+  "theme_color": "#000",
+  "dir": "ltr",
+  "display": "standalone",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./images/icon44.svg",
+      "type": "image/svg+xml",
+      "sizes": "44x44",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/icon144.svg",
+      "type": "image/svg+xml",
+      "sizes": "144x144",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/icon192.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/icon256.svg",
+      "type": "image/svg+xml",
+      "sizes": "256x256",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/icon512.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ]
+}
