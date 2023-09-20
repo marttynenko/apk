@@ -24,6 +24,7 @@ window.addEventListener('load', async () => {
 const toScreenMain = (event) => {
   event.preventDefault()
   document.querySelector('.screen-main').classList.add('active')
+  document.querySelector('.screen-start-btn').classList.remove('opened')
   
   setTimeout(() => {
     document.querySelector('.screen-start').classList.remove('active')
@@ -35,6 +36,7 @@ const toScreenStart = (event) => {
   document.querySelector('.screen-start-btn').classList.remove('opened')
   document.querySelector('.screen-main').classList.remove('active')
   document.querySelector('.screen-start').classList.add('active')
+  document.querySelector('.screen-main-finger').classList.remove('ui-hidden')
 }
 
 document.querySelector('.screen-start-btn').addEventListener('click', toScreenMain)
@@ -49,15 +51,20 @@ const parsePopup = (data) => {
   img.addEventListener('load', () => {
     img.style.opacity = 1
   })
-  img.setAttribute('src','//apk.pwd.by/storage/'+data.profile.photo_cropped)
+  img.setAttribute('src','//apk.farbatest.com/storage/'+data.profile.photo_cropped)
   //должность
   document.querySelector('.person-pos').textContent = data.profile.position
   //фио
   document.querySelector('.person-name').textContent = data.profile.fio
+  //описание
+  document.querySelector('.person-descr').textContent = data.profile.description === '-' ? '' : data.profile.description
   //стаж
   document.querySelector('.person-experience-sticker').textContent = data.profile.experience
-  //описание
-  document.querySelector('.person-descr').textContent = data.profile.description
+  if (!data.profile.experience ||  data.profile.experience.length < 2) {
+    document.querySelector('.person-experience').classList.add('ui-hidden')
+  } else {
+    document.querySelector('.person-experience').classList.remove('ui-hidden')
+  }
 
   //обрабатываем ссылки на следующий/предыдущий профиль
   const prevLink = document.querySelector('.popup-btns-prev')
@@ -104,10 +111,23 @@ const closePopup = (event) => {
     el.addEventListener('click', async (e) => {
       e.preventDefault()
 
-      const data = await fetchProfile('//apk.pwd.by/api/profile/get')
+      const data = await fetchProfile('//apk.farbatest.com/api/profile/get')
       parsePopup(data)
+
+      document.querySelector('.screen-main-finger').classList.add('ui-hidden')
     })
   })
+
+  document.querySelector('.screen-main-finger')
+    .addEventListener('click', async (e) => {
+      e.preventDefault()
+      console.log('click finger')
+
+      const data = await fetchProfile('//apk.farbatest.com/api/profile/get')
+      parsePopup(data)
+
+      document.querySelector('.screen-main-finger').classList.add('ui-hidden')
+    })
 })();
 
 
@@ -122,7 +142,7 @@ document.querySelectorAll('.popup-btns-toprofile')
       event.preventDefault()
 
       const id = el.dataset.to
-      const data = await fetchProfile(`//apk.pwd.by/api/profile/get/${id}`)
+      const data = await fetchProfile(`//apk.farbatest.com/api/profile/get/${id}`)
       parsePopup(data)
     })
   })
@@ -130,7 +150,7 @@ document.querySelectorAll('.popup-btns-toprofile')
 
 //фетчим запросы поиска
 const fetchSearch = async (req) => {
-  const r = await fetch(`https://apk.pwd.by/api/profile/search/${req}`)
+  const r = await fetch(`//apk.farbatest.com/api/profile/search/${req}`)
   const rr = await r.json()
   return {status: r.status, profiles: rr.profiles ? rr.profiles : []}
 }
@@ -138,7 +158,7 @@ const fetchSearch = async (req) => {
 
 //открываем попа из поиска
 const openPopup = async (id) => {
-  const data = await fetchProfile(`//apk.pwd.by/api/profile/get/${id}`)
+  const data = await fetchProfile(`//apk.farbatest.com/api/profile/get/${id}`)
   parsePopup(data)
 }
 
@@ -154,7 +174,7 @@ const parseSearchResults = (arr, phrase) => {
     output += `
     <a href="javascript:void(0)" class="search-result" data-id="${el.id}" onclick="openPopup(${el.id})">
       <div class="search-result-photo">
-        <img src="//apk.pwd.by/storage/${el.photo_search}" alt="${el.fio}">
+        <img src="//apk.farbatest.com/storage/${el.photo_search}" alt="${el.fio}">
       </div>
       <div class="search-result-name">${el.fio}</div>
       <div class="search-result-arrow"></div>

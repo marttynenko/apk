@@ -131,15 +131,15 @@ table {
 	::-webkit-scrollbar {
 		width: 4px;
 		height: 4px;
-		background-color: $primary;
+		background-color: #263445;
 	}
 	::-webkit-scrollbar-thumb {
 		width: 4px;
 		height: 4px;
-		background-color: #263445;
+		background-color: $primary;
 	}
 	::-webkit-scrollbar-thumb:hover {
-		background: lighten($primary, 8%);
+		background: darken($primary, 8%);
 	}
 }
 
