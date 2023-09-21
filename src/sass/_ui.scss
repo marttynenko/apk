@@ -125,7 +125,7 @@ table {
 }
 ::-moz-selection {
 	background: $bgc;
-	color: #FFF;	
+	color: #FFF;
 }
 @media (min-width: 992px) {
 	::-webkit-scrollbar {
@@ -276,7 +276,7 @@ span.invalid {
 		font-style: normal;
 		transition: border .3s, background-color .3s;
 
-		&:before, 
+		&:before,
 		&:after {
 			content: "";
 			position: absolute;

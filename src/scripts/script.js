@@ -25,7 +25,7 @@ const toScreenMain = (event) => {
   event.preventDefault()
   document.querySelector('.screen-main').classList.add('active')
   document.querySelector('.screen-start-btn').classList.remove('opened')
-  
+
   setTimeout(() => {
     document.querySelector('.screen-start').classList.remove('active')
   }, 810)
@@ -84,7 +84,7 @@ const parsePopup = (data) => {
     nextLink.dataset.to = data.next
     nextLink.classList.add('ui-hidden')
   }
-  
+
   document.querySelector('.popups').classList.add('opened')
   document.documentElement.classList.add('popup-opened')
 }

@@ -2202,6 +2202,11 @@ span.invalid {
   -webkit-box-shadow: 0px 0px 90px rgba(171, 205, 229, 0.38);
           box-shadow: 0px 0px 90px rgba(171, 205, 229, 0.38);
 }
+.screen-main-person {
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  position: absolute;
+}
 
 .screen-main-finger-circle-1,
 .screen-main-finger-circle-2 {
@@ -2733,4 +2738,11 @@ span.invalid {
 .popup-btns-next svg {
   margin-right: 0;
   margin-left: 7px;
+}
+
+.cirlce-1 {
+  width: 418px;
+  height: 418px;
+  left: 156px;
+  top: 384px;
 }
