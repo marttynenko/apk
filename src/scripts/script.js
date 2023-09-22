@@ -271,7 +271,7 @@ const parserProfiles = (arr) => {
           <a href="javascript:void(0)" data-id="${el.id}" onclick="openPopup(${el.id})" class="screen-main-more">Узнать больше</a>
         </div>
 
-        <img src="//apk.farbatest.com/storage/${el.photo_cropped}" alt="alt">
+        <img src="//apk.farbatest.com/storage/${el.photo_cropped}" alt="alt" onload="onLoadImg(this)">
       </div>
     `
   })
@@ -285,6 +285,10 @@ const onLoad = async (page) => {
 
   document.querySelector('.screen-main-profiles').innerHTML = parsedResults;
 };
+
+function onLoadImg(el) {
+  el.classList.add('show')
+}
 
 window.addEventListener('load', () => {
   onLoad(page)
@@ -335,40 +339,40 @@ function handleTouchMove(evt) {
       // swipe вверх
       if(!flag) return
 
-      flag = false
-
       if(page < lastPage) {
+        flag = false
         page = page + 1
+
         parent.classList.add('active')
 
         setTimeout(() => {
           updateCards(page)
-        }, 600)
+        }, 1000)
 
         setTimeout(() => {
           parent.classList.remove('active')
           flag = true
-        }, 1000)
+        }, 1100)
       }
 
     } else {
       /* swipe вниз */
       if(!flag) return
 
-      flag = false
-
       if(page > 1) {
+        flag = false
         page = page - 1
+
         parent.classList.add('active')
 
         setTimeout(() => {
           updateCards(page)
-        }, 600)
+        }, 1000)
 
         setTimeout(() => {
           parent.classList.remove('active')
           flag = true
-        }, 1000)
+        }, 1100)
       }
     }
   }
