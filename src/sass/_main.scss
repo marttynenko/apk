@@ -192,10 +192,86 @@
     }
   }
 
+  &-profiles {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease, transform 1s ease;
+
+    &.active {
+      transform: scale(1.25);
+      opacity: 0;
+    }
+  }
+
   &-person {
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.20);
     position: absolute;
+    overflow: hidden;
+    container-name: circle;
+    container-type: inline-size;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-overlay {
+    background: linear-gradient(180deg, #549ED6 0%, #37588D 100%), #59AF4B;
+    width: 100%;
+    height: 100%;
+    // padding: 50px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(1.2);
+    transition: transform 0.5s;
+    padding: 10%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    &.active {
+      opacity: 1;
+      pointer-events: all;
+      visibility: visible;
+      transform: scale(1);
+    }
+  }
+
+  &-name {
+    margin-bottom: 30px;
+    font-family: 'Franklin Gothic Demi';
+  }
+
+  &-more {
+    display: block;
+    font-size: 24px;
+    max-width: 250px;
+    width: 100%;
+    height: 75px;
+    line-height: 70px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    margin: 0 auto;
+    padding: 0 10px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 .screen-main-finger-circle-1,
@@ -639,8 +715,251 @@
 }
 
 .cirlce-1 {
-  width: 418px;
-  height: 418px;
-  left: 156px;
-  top: 384px;
+  width: calc((418 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((154 / 3840) * 100%);
+  top: calc((384 / 2160) * 100%);
+  font-size: 50%;
+}
+
+.cirlce-2 {
+  width: calc((352 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((662 / 3840) * 100%);
+  top: calc((152 / 2160) * 100%);
+}
+
+.cirlce-3 {
+  width: calc((395 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((1222 / 3840) * 100%);
+  top: calc((197 / 2160) * 100%);
+}
+
+.cirlce-4 {
+  width: calc((388 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((1726 / 3840) * 100%);
+  top: calc((73 / 2160) * 100%);
+}
+
+.cirlce-5 {
+  width: calc((462 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((2292 / 3840) * 100%);
+  top: calc((118 / 2160) * 100%);
+}
+
+.cirlce-6 {
+  width: calc((463 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((2877 / 3840) * 100%);
+  top: calc((152 / 2160) * 100%);
+}
+
+.cirlce-7 {
+  width: calc((336 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((345 / 3840) * 100%);
+  top: calc((889 / 2160) * 100%);
+}
+
+.cirlce-8 {
+  width: calc((417 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((805 / 3840) * 100%);
+  top: calc((593 / 2160) * 100%);
+}
+
+.cirlce-9 {
+  width: calc((269 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((1434 / 3840) * 100%);
+  top: calc((696 / 2160) * 100%);
+}
+
+.cirlce-10 {
+  width: calc((462 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((1853 / 3840) * 100%);
+  top: calc((535 / 2160) * 100%);
+}
+
+.cirlce-11 {
+  width: calc((462 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((2486 / 3840) * 100%);
+  top: calc((651 / 2160) * 100%);
+}
+
+.cirlce-12 {
+  width: calc((535 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((3056 / 3840) * 100%);
+  top: calc((671 / 2160) * 100%);
+}
+
+.cirlce-13 {
+  width: calc((438 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((182 / 3840) * 100%);
+  top: calc((1392 / 2160) * 100%);
+}
+
+.cirlce-14 {
+  width: calc((439 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((714 / 3840) * 100%);
+  top: calc((1226 / 2160) * 100%);
+}
+
+.cirlce-15 {
+  width: calc((313 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((1249 / 3840) * 100%);
+  top: calc((1022 / 2160) * 100%);
+}
+
+.cirlce-16 {
+  width: calc((387 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((1670 / 3840) * 100%);
+  top: calc((1142 / 2160) * 100%);
+}
+
+.cirlce-17 {
+  width: calc((317 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((2230 / 3840) * 100%);
+  top: calc((1103 / 2160) * 100%);
+}
+
+.cirlce-18 {
+  width: calc((485 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((2090 / 3840) * 100%);
+  top: calc((1551 / 2160) * 100%);
+}
+
+.cirlce-19 {
+  width: calc((331 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((2800 / 3840) * 100%);
+  top: calc((1316 / 2160) * 100%);
+}
+
+.cirlce-20 {
+  width: calc((472 / 3840) * 100%);
+  aspect-ratio: 1;
+  left: calc((1231 / 3840) * 100%);
+  top: calc((1451 / 2160) * 100%);
+}
+
+@container circle (max-width: 550px) {
+  .screen-main-overlay {
+    font-size: 40px;
+  }
+}
+
+@container circle (max-width: 400px) {
+  .screen-main-overlay {
+    font-size: 38px;
+  }
+
+  .screen-main-name {
+    margin-bottom: 25px;
+  }
+
+  .screen-main-more {
+    font-size: 20px;
+    height: 65px;
+    line-height: 60px;
+    border-radius: 20px;
+  }
+}
+
+@container circle (max-width: 350px) {
+  .screen-main-overlay {
+    font-size: 30px;
+  }
+
+  .screen-main-name {
+    margin-bottom: 25px;
+  }
+
+  .screen-main-more {
+    font-size: 18px;
+    height: 50px;
+    line-height: 45px;
+    border-radius: 10px;
+  }
+}
+
+@container circle (max-width: 300px) {
+  .screen-main-overlay {
+    font-size: 28px;
+  }
+
+  .screen-main-name {
+    margin-bottom: 15px;
+  }
+
+  .screen-main-more {
+    font-size: 18px;
+    height: 45px;
+    line-height: 40px;
+    border-radius: 10px;
+  }
+}
+
+@container circle (max-width: 250px) {
+  .screen-main-overlay {
+    font-size: 20px;
+  }
+
+  .screen-main-name {
+    margin-bottom: 15px;
+  }
+
+  .screen-main-more {
+    font-size: 16px;
+    height: 40px;
+    line-height: 35px;
+    border-radius: 10px;
+    max-width: 150px
+  }
+}
+
+@container circle (max-width: 200px) {
+  .screen-main-overlay {
+    font-size: 18px;
+  }
+
+  .screen-main-name {
+    margin-bottom: 12px;
+  }
+
+  .screen-main-more {
+    font-size: 16px;
+    height: 40px;
+    line-height: 35px;
+    border-radius: 10px;
+  }
+}
+
+@container circle (max-width: 150px) {
+  .screen-main-overlay {
+    font-size: 16px;
+  }
+
+  .screen-main-name {
+    margin-bottom: 5px;
+  }
+
+  .screen-main-more {
+    font-size: 14px;
+    height: 45px;
+    line-height: 35px;
+    border-radius: 10px;
+  }
 }
