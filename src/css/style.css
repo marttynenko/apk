@@ -2086,6 +2086,8 @@ span.invalid {
   transition: visibility 0.8s, opacity 0.8s, -webkit-transform 0.8s;
   transition: visibility 0.8s, opacity 0.8s, transform 0.8s;
   transition: visibility 0.8s, opacity 0.8s, transform 0.8s, -webkit-transform 0.8s;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
 }
 .screen-start-btn-circles {
   position: absolute;
@@ -2224,14 +2226,16 @@ span.invalid {
   opacity: 0;
 }
 .screen-main-person {
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.2);
   position: absolute;
+  border-radius: 50%;
   overflow: hidden;
   container-name: circle;
   container-type: inline-size;
-  background: #213037;
-  background-clip: padding-box;
+  line-height: 1.2;
+  font-size: 50px;
+  font-size: 3.125rem;
+  width: 14.5%;
+  aspect-ratio: 1;
 }
 .screen-main-person img {
   -o-object-fit: cover;
@@ -2239,9 +2243,9 @@ span.invalid {
   width: 100%;
   height: 100%;
   opacity: 0;
-  -webkit-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.15);
+      -ms-transform: scale(1.15);
+          transform: scale(1.15);
   -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
   transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -2254,26 +2258,26 @@ span.invalid {
           transform: scale(1);
 }
 .screen-main-overlay {
-  background: -webkit-gradient(linear, left top, left bottom, from(#549ED6), to(#37588D)), #59AF4B;
-  background: linear-gradient(180deg, #549ED6 0%, #37588D 100%), #59AF4B;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  -webkit-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-          transform: scale(1.2);
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-  padding: 10%;
   position: absolute;
   left: 0;
   top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: -webkit-gradient(linear, left top, left bottom, from(#549ED6), to(#37588D)), #59AF4B;
+  background: linear-gradient(180deg, #549ED6 0%, #37588D 100%), #59AF4B;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  -webkit-transform: scale(1.15);
+      -ms-transform: scale(1.15);
+          transform: scale(1.15);
+  -webkit-transition: opacity 0.5s, visibility 0.5s, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s, visibility 0.5s, -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s, visibility 0.5s;
+  transition: transform 0.5s ease, opacity 0.5s, visibility 0.5s, -webkit-transform 0.5s ease;
+  padding: 10%;
   text-align: center;
-  font-size: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2298,17 +2302,15 @@ span.invalid {
   font-family: "Franklin Gothic Demi";
 }
 .screen-main-more {
-  display: block;
+  display: inline-block;
   font-size: 24px;
-  max-width: 250px;
-  width: 100%;
   height: 75px;
   line-height: 71px;
   background-color: transparent;
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 7%;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
@@ -2350,7 +2352,7 @@ span.invalid {
   padding: 30px;
   border: 2px solid rgba(171, 205, 229, 0.4);
   border-radius: 25px;
-  background: rgba(5, 25, 35, 0.4);
+  background: rgba(5, 25, 35, 0.94);
   -webkit-box-shadow: 0px 0px 90px rgba(146, 212, 255, 0.38);
           box-shadow: 0px 0px 90px rgba(146, 212, 255, 0.38);
 }
@@ -2426,7 +2428,7 @@ span.invalid {
   border: 2px solid rgba(171, 205, 229, 0.4);
   border-radius: 25px;
   padding: 20px 30px 30px;
-  background: rgba(5, 25, 35, 0.4);
+  background: rgba(5, 25, 35, 0.94);
   -webkit-box-shadow: 0px 0px 90px rgba(146, 212, 255, 0.38);
           box-shadow: 0px 0px 90px rgba(146, 212, 255, 0.38);
   -webkit-transition: visibility 0.8s, opacity 0.8s, -webkit-transform 0.8s;
@@ -2618,41 +2620,9 @@ span.invalid {
             transform: rotate(-1deg);
   }
 }
-.screen.active .screen-main-light {
-  -webkit-animation: pulse 5s infinite linear;
-          animation: pulse 5s infinite linear;
-}
 .screen.active .screen-main-imgs {
   -webkit-animation: wind 13s infinite linear;
           animation: wind 13s infinite linear;
-}
-.screen.active .corn-1 {
-  -webkit-animation: corn 3s infinite linear;
-          animation: corn 3s infinite linear;
-}
-.screen.active .corn-2 {
-  -webkit-animation: corn 4s 0.5s infinite linear;
-          animation: corn 4s 0.5s infinite linear;
-}
-.screen.active .corn-3 {
-  -webkit-animation: corn 3s 0.2s infinite linear;
-          animation: corn 3s 0.2s infinite linear;
-}
-.screen.active .corn-4 {
-  -webkit-animation: corn 3.5s 0.3s infinite linear;
-          animation: corn 3.5s 0.3s infinite linear;
-}
-.screen.active .corn-5 {
-  -webkit-animation: corn 2s infinite linear;
-          animation: corn 2s infinite linear;
-}
-.screen.active .corn-6 {
-  -webkit-animation: corn 2.5s 0.1s infinite linear;
-          animation: corn 2.5s 0.1s infinite linear;
-}
-.screen.active .corn-7 {
-  -webkit-animation: corn 4s infinite linear;
-          animation: corn 4s infinite linear;
 }
 
 .popup-opened .screen.active {
@@ -2848,154 +2818,170 @@ span.invalid {
 }
 
 .cirlce-1 {
-  width: 10.8%;
-  aspect-ratio: 1;
   left: 4%;
   top: 17.7%;
-  font-size: 50%;
+  -webkit-transform: scale(0.75);
+      -ms-transform: scale(0.75);
+          transform: scale(0.75);
 }
 
 .cirlce-2 {
-  width: 9.1%;
-  aspect-ratio: 1;
   left: 17.2%;
-  top: 7%;
+  top: 3%;
+  -webkit-transform: scale(0.62);
+      -ms-transform: scale(0.62);
+          transform: scale(0.62);
 }
 
 .cirlce-3 {
-  width: 10.2%;
-  aspect-ratio: 1;
   left: 31.8%;
   top: 9.1%;
+  -webkit-transform: scale(0.7);
+      -ms-transform: scale(0.7);
+          transform: scale(0.7);
 }
 
 .cirlce-4 {
-  width: 10.1%;
-  aspect-ratio: 1;
   left: 44.9%;
-  top: 3.3%;
+  top: 1%;
+  -webkit-transform: scale(0.69);
+      -ms-transform: scale(0.69);
+          transform: scale(0.69);
 }
 
 .cirlce-5 {
-  width: 12%;
-  aspect-ratio: 1;
   left: 59.6%;
   top: 5.4%;
+  -webkit-transform: scale(0.82);
+      -ms-transform: scale(0.82);
+          transform: scale(0.82);
 }
 
 .cirlce-6 {
-  width: 12%;
-  aspect-ratio: 1;
-  left: 74.9%;
-  top: 7%;
+  left: 75%;
+  top: 5.5%;
+  -webkit-transform: scale(0.81);
+      -ms-transform: scale(0.81);
+          transform: scale(0.81);
 }
 
 .cirlce-7 {
-  width: 8.75%;
-  aspect-ratio: 1;
   left: 8.9%;
   top: 41.1%;
+  -webkit-transform: scale(0.6);
+      -ms-transform: scale(0.6);
+          transform: scale(0.6);
 }
 
 .cirlce-8 {
-  width: 10.8%;
-  aspect-ratio: 1;
   left: 20.9%;
   top: 27.4%;
+  -webkit-transform: scale(0.74);
+      -ms-transform: scale(0.74);
+          transform: scale(0.74);
 }
 
 .cirlce-9 {
-  width: 7%;
-  aspect-ratio: 1;
-  left: 37.3%;
-  top: 32.2%;
+  left: 35.3%;
+  top: 28%;
+  -webkit-transform: scale(0.48);
+      -ms-transform: scale(0.48);
+          transform: scale(0.48);
 }
 
 .cirlce-10 {
-  width: 12%;
-  aspect-ratio: 1;
-  left: 48.2%;
-  top: 24.7%;
+  left: 49.2%;
+  top: 25.7%;
+  -webkit-transform: scale(0.82);
+      -ms-transform: scale(0.82);
+          transform: scale(0.82);
 }
 
 .cirlce-11 {
-  width: 12%;
-  aspect-ratio: 1;
   left: 64.7%;
   top: 30.1%;
+  -webkit-transform: scale(0.79);
+      -ms-transform: scale(0.79);
+          transform: scale(0.79);
 }
 
 .cirlce-12 {
-  width: 13.9%;
-  aspect-ratio: 1;
   left: 79.5%;
-  top: 31%;
+  top: 33%;
+  -webkit-transform: scale(0.95);
+      -ms-transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 .cirlce-13 {
-  width: 11.4%;
-  aspect-ratio: 1;
   left: 4.73%;
   top: 64.4%;
+  -webkit-transform: scale(0.78);
+      -ms-transform: scale(0.78);
+          transform: scale(0.78);
 }
 
 .cirlce-14 {
-  width: 11.4%;
-  aspect-ratio: 1;
   left: 18.5%;
   top: 56.7%;
+  -webkit-transform: scale(0.81);
+      -ms-transform: scale(0.81);
+          transform: scale(0.81);
 }
 
 .cirlce-15 {
-  width: 8.15%;
-  aspect-ratio: 1;
-  left: 32.5%;
-  top: 47.3%;
+  left: 29%;
+  top: 44%;
+  -webkit-transform: scale(0.55);
+      -ms-transform: scale(0.55);
+          transform: scale(0.55);
 }
 
 .cirlce-16 {
-  width: 10%;
-  aspect-ratio: 1;
-  left: 43.4%;
-  top: 52.8%;
+  left: 42%;
+  top: 48%;
+  -webkit-transform: scale(0.69);
+      -ms-transform: scale(0.69);
+          transform: scale(0.69);
 }
 
 .cirlce-17 {
-  width: 8.25%;
-  aspect-ratio: 1;
-  left: 58%;
-  top: 51%;
+  left: 56%;
+  top: 46%;
+  -webkit-transform: scale(0.56);
+      -ms-transform: scale(0.56);
+          transform: scale(0.56);
 }
 
 .cirlce-18 {
-  width: 12.6%;
-  aspect-ratio: 1;
-  left: 54.4%;
-  top: 71.8%;
+  left: 53%;
+  top: 70%;
 }
 
 .cirlce-19 {
-  width: 8.6%;
-  aspect-ratio: 1;
-  left: 72.9%;
-  top: 60.9%;
+  left: 72%;
+  top: 60%;
+  -webkit-transform: scale(0.62);
+      -ms-transform: scale(0.62);
+          transform: scale(0.62);
 }
 
 .cirlce-20 {
-  width: 12.2%;
-  aspect-ratio: 1;
   left: 32%;
   top: 67.1%;
+  -webkit-transform: scale(0.84);
+      -ms-transform: scale(0.84);
+          transform: scale(0.84);
 }
 
-@container circle (max-width: 550px) {
+@container circle (max-width: 500px) {
   .screen-main-overlay {
-    font-size: 40px;
+    font-size: 45px;
   }
 }
 @container circle (max-width: 400px) {
   .screen-main-overlay {
-    font-size: 38px;
+    font-size: 40px;
   }
 
   .screen-main-name {
@@ -3009,13 +2995,9 @@ span.invalid {
     border-radius: 20px;
   }
 }
-@container circle (max-width: 355px) {
+@container circle (max-width: 350px) {
   .screen-main-overlay {
-    font-size: 30px;
-  }
-
-  .screen-main-name {
-    margin-bottom: 25px;
+    font-size: 35px;
   }
 
   .screen-main-more {
@@ -3023,12 +3005,11 @@ span.invalid {
     height: 50px;
     line-height: 46px;
     border-radius: 10px;
-    max-width: 150px;
   }
 }
-@container circle (max-width: 305px) {
+@container circle (max-width: 300px) {
   .screen-main-overlay {
-    font-size: 28px;
+    font-size: 30px;
   }
 
   .screen-main-name {
@@ -3039,12 +3020,11 @@ span.invalid {
     font-size: 18px;
     height: 45px;
     line-height: 41px;
-    border-radius: 10px;
   }
 }
-@container circle (max-width: 255px) {
+@container circle (max-width: 250px) {
   .screen-main-overlay {
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .screen-main-name {
@@ -3056,12 +3036,11 @@ span.invalid {
     height: 40px;
     line-height: 36px;
     border-radius: 10px;
-    max-width: 120px;
   }
 }
-@container circle (max-width: 205px) {
+@container circle (max-width: 200px) {
   .screen-main-overlay {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .screen-main-name {
@@ -3070,12 +3049,9 @@ span.invalid {
 
   .screen-main-more {
     font-size: 14px;
-    height: 40px;
-    line-height: 36px;
-    border-radius: 10px;
   }
 }
-@container circle (max-width: 155px) {
+@container circle (max-width: 150px) {
   .screen-main-overlay {
     font-size: 16px;
   }

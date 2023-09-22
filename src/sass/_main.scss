@@ -71,6 +71,8 @@
     opacity: 0;
     transform: scale(0.85);
     transition: visibility .8s, opacity .8s, transform .8s;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
 
     &-circles {
       position: absolute;
@@ -209,21 +211,24 @@
   }
 
   &-person {
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.20);
     position: absolute;
+    border-radius: 50%;
     overflow: hidden;
     container-name: circle;
     container-type: inline-size;
-    background: #213037;
-    background-clip: padding-box;
+    line-height: 1.2;
+    @include fz(50);
+    width: 14.5%;
+    aspect-ratio: 1;
+    // background: #213037;
+    // border: 2px solid rgba(255, 255, 255, 0.20);
 
     img {
       object-fit: cover;
       width: 100%;
       height: 100%;
       opacity: 0;
-      transform: scale(1.1);
+      transform: scale(1.15);
       transition: opacity .5s ease, transform .5s ease;
 
       &.show {
@@ -234,21 +239,20 @@
   }
 
   &-overlay {
-    background: linear-gradient(180deg, #549ED6 0%, #37588D 100%), #59AF4B;
-    width: 100%;
-    height: 100%;
-    // padding: 50px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: scale(1.2);
-    transition: transform 0.5s;
-    padding: 10%;
     position: absolute;
     left: 0;
     top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(180deg, #549ED6 0%, #37588D 100%), #59AF4B;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(1.15);
+    transition: transform 0.5s ease, opacity .5s, visibility .5s;
+    padding: 10%;
     text-align: center;
-    font-size: 50px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -258,6 +262,7 @@
       pointer-events: all;
       visibility: visible;
       transform: scale(1);
+      
     }
   }
 
@@ -267,17 +272,15 @@
   }
 
   &-more {
-    display: block;
+    display: inline-block;
     font-size: 24px;
-    max-width: 250px;
-    width: 100%;
     height: 75px;
     line-height: 71px;
     background-color: transparent;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0 7%;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -321,7 +324,7 @@
   padding: 30px;
   border: 2px solid rgba(#ABCDE5, 40%);
   border-radius: 25px;
-  background: rgba(5, 25, 35, 0.40);
+  background: rgba(5, 25, 35, 0.94);
   box-shadow: 0px 0px 90px rgba(146, 212, 255, 0.38);
 
   &-form {
@@ -392,7 +395,7 @@
     border: 2px solid rgba(#ABCDE5, 40%);
     border-radius: 25px;
     padding: 20px 30px 30px;
-    background: rgba(5, 25, 35, 0.40);
+    background: rgba(5, 25, 35, 0.94);
     box-shadow: 0px 0px 90px rgba(146, 212, 255, 0.38);
     transition: visibility .8s, opacity .8s, transform .8s;
     visibility: hidden;
@@ -529,33 +532,33 @@
 }
 
 .screen.active {
-  .screen-main-light {
-    animation: pulse 5s infinite linear;
-  }
+  // .screen-main-light {
+  //   animation: pulse 5s infinite linear;
+  // }
   .screen-main-imgs {
     animation: wind 13s infinite linear;
   }
-  .corn-1 {
-    animation: corn 3s infinite linear;
-  }
-  .corn-2 {
-    animation: corn 4s .5s infinite linear;
-  }
-  .corn-3 {
-    animation: corn 3s .2s infinite linear;
-  }
-  .corn-4 {
-    animation: corn 3.5s .3s infinite linear;
-  }
-  .corn-5 {
-    animation: corn 2s infinite linear;
-  }
-  .corn-6 {
-    animation: corn 2.5s .1s infinite linear;
-  }
-  .corn-7 {
-    animation: corn 4s infinite linear;
-  }
+  // .corn-1 {
+  //   animation: corn 3s infinite linear;
+  // }
+  // .corn-2 {
+  //   animation: corn 4s .5s infinite linear;
+  // }
+  // .corn-3 {
+  //   animation: corn 3s .2s infinite linear;
+  // }
+  // .corn-4 {
+  //   animation: corn 3.5s .3s infinite linear;
+  // }
+  // .corn-5 {
+  //   animation: corn 2s infinite linear;
+  // }
+  // .corn-6 {
+  //   animation: corn 2.5s .1s infinite linear;
+  // }
+  // .corn-7 {
+  //   animation: corn 4s infinite linear;
+  // }
 }
 
 .popup-opened {
@@ -725,155 +728,153 @@
 }
 
 .cirlce-1 {
-  width: 10.8%;
-  aspect-ratio: 1;
+  // width: 10.8%;
   left: 4%;
   top: 17.7%;
-  font-size: 50%;
+  transform: scale(0.75);
 }
 
 .cirlce-2 {
-  width: 9.1%;
-  aspect-ratio: 1;
+  // width: 9.1%;
   left: 17.2%;
-  top: 7%;
+  top: 3%;
+  transform: scale(0.62);
 }
 
 .cirlce-3 {
-  width: 10.2%;
-  aspect-ratio: 1;
+  // width: 10.2%;
   left: 31.8%;
   top: 9.1%;
+  transform: scale(0.7);
 }
 
 .cirlce-4 {
-  width: 10.1%;
-  aspect-ratio: 1;
+  // width: 10.1%;
   left: 44.9%;
-  top: 3.3%;
+  top: 1%;
+  transform: scale(0.69);
 }
 
 .cirlce-5 {
-  width: 12%;
-  aspect-ratio: 1;
+  // width: 12%;
   left: 59.6%;
   top: 5.4%;
+  transform: scale(0.82);
 }
 
 .cirlce-6 {
-  width: 12%;
-  aspect-ratio: 1;
-  left: 74.9%;
-  top: 7%;
+  // width: 12%;
+  left: 75%;
+  top: 5.5%;
+  transform: scale(0.81);
 }
 
 .cirlce-7 {
-  width: 8.75%;
-  aspect-ratio: 1;
+  // width: 8.75%;
   left: 8.9%;
   top: 41.1%;
+  transform: scale(0.6);
 }
 
 .cirlce-8 {
-  width: 10.8%;
-  aspect-ratio: 1;
+  // width: 10.8%;
   left: 20.9%;
   top: 27.4%;
+  transform: scale(0.74);
 }
 
 .cirlce-9 {
-  width: 7%;
-  aspect-ratio: 1;
-  left: 37.3%;
-  top: 32.2%;
+  // width: 7%;
+  left: 35.3%;
+  top: 28%;
+  transform: scale(0.48);
 }
 
 .cirlce-10 {
-  width: 12%;
-  aspect-ratio: 1;
-  left: 48.2%;
-  top: 24.7%;
+  // width: 12%;
+  left: 49.2%;
+  top: 25.7%;
+  transform: scale(0.82);
 }
 
 .cirlce-11 {
-  width: 12%;
-  aspect-ratio: 1;
+  // width: 12%;
   left: 64.7%;
   top: 30.1%;
+  transform: scale(0.79);
 }
 
 .cirlce-12 {
-  width: 13.9%;
-  aspect-ratio: 1;
+  // width: 13.9%;
   left: 79.5%;
-  top: 31%;
+  top: 33%;
+  transform: scale(0.95);
 }
 
 .cirlce-13 {
-  width: 11.4%;
-  aspect-ratio: 1;
+  // width: 11.4%;
   left: 4.73%;
   top: 64.4%;
+  transform: scale(0.78);
 }
 
 .cirlce-14 {
-  width: 11.4%;
-  aspect-ratio: 1;
+  // width: 11.4%;
   left: 18.5%;
   top: 56.7%;
+  transform: scale(0.81);
 }
 
 .cirlce-15 {
-  width: 8.15%;
-  aspect-ratio: 1;
-  left: 32.5%;
-  top: 47.3%;
+  // width: 8.15%;
+  left: 29%;
+  top: 44%;
+  transform: scale(0.55);
 }
 
 .cirlce-16 {
-  width: 10%;
-  aspect-ratio: 1;
-  left: 43.4%;
-  top: 52.8%;
+  // width: 10%;
+  left: 42%;
+  top: 48%;
+  transform: scale(0.69);
 }
 
 .cirlce-17 {
-  width: 8.25%;
-  aspect-ratio: 1;
-  left: 58%;
-  top: 51%;
+  // width: 8.25%;
+  left: 56%;
+  top: 46%;
+  transform: scale(0.56);
 }
 
 .cirlce-18 {
-  width: 12.6%;
-  aspect-ratio: 1;
-  left: 54.4%;
-  top: 71.8%;
+  // width: 12.6%;
+  left: 53%;
+  top: 70%;
 }
 
 .cirlce-19 {
-  width: 8.6%;
-  aspect-ratio: 1;
-  left: 72.9%;
-  top: 60.9%;
+  // width: 8.6%;
+  left: 72%;
+  top: 60%;
+  transform: scale(0.62);
 }
 
 .cirlce-20 {
-  width: 12.2%;
-  aspect-ratio: 1;
+  // width: 12.2%;
   left: 32%;
   top: 67.1%;
+  transform: scale(0.84);
 }
 
-@container circle (max-width: 550px) {
+@container circle (max-width: 500px) {
   .screen-main-overlay {
-    font-size: 40px;
+    font-size: 45px;
   }
 }
 
 @container circle (max-width: 400px) {
   .screen-main-overlay {
-    font-size: 38px;
+    font-size: 40px;
   }
 
   .screen-main-name {
@@ -888,13 +889,9 @@
   }
 }
 
-@container circle (max-width: 355px) {
+@container circle (max-width: 350px) {
   .screen-main-overlay {
-    font-size: 30px;
-  }
-
-  .screen-main-name {
-    margin-bottom: 25px;
+    font-size: 35px;
   }
 
   .screen-main-more {
@@ -902,13 +899,12 @@
     height: 50px;
     line-height: 46px;
     border-radius: 10px;
-    max-width: 150px
   }
 }
 
-@container circle (max-width: 305px) {
+@container circle (max-width: 300px) {
   .screen-main-overlay {
-    font-size: 28px;
+    font-size: 30px;
   }
 
   .screen-main-name {
@@ -919,13 +915,12 @@
     font-size: 18px;
     height: 45px;
     line-height: 41px;
-    border-radius: 10px;
   }
 }
 
-@container circle (max-width: 255px) {
+@container circle (max-width: 250px) {
   .screen-main-overlay {
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .screen-main-name {
@@ -937,13 +932,12 @@
     height: 40px;
     line-height: 36px;
     border-radius: 10px;
-    max-width: 120px
   }
 }
 
-@container circle (max-width: 205px) {
+@container circle (max-width: 200px) {
   .screen-main-overlay {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .screen-main-name {
@@ -952,13 +946,10 @@
 
   .screen-main-more {
     font-size: 14px;
-    height: 40px;
-    line-height: 36px;
-    border-radius: 10px;
   }
 }
 
-@container circle (max-width: 155px) {
+@container circle (max-width: 150px) {
   .screen-main-overlay {
     font-size: 16px;
   }

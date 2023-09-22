@@ -36,7 +36,7 @@ const toScreenStart = (event) => {
   document.querySelector('.screen-start-btn').classList.remove('opened')
   document.querySelector('.screen-main').classList.remove('active')
   document.querySelector('.screen-start').classList.add('active')
-  document.querySelector('.screen-main-finger').classList.remove('ui-hidden')
+  // document.querySelector('.screen-main-finger').classList.remove('ui-hidden')
 }
 
 document.querySelector('.screen-start-btn').addEventListener('click', toScreenMain)
@@ -162,18 +162,6 @@ const openPopup = async (id) => {
   parsePopup(data)
 }
 
-document.addEventListener('click', (e) => {
-  if(e.target.closest('.screen-main-person') || e.target.classList.contains('screen-main-person')) {
-    const parent = e.target.closest('.screen-main-person') || e.target
-
-    parent.querySelector('.screen-main-overlay').classList.toggle('active')
-  } else {
-    document.querySelectorAll('.screen-main-overlay').forEach(item => {
-      item.classList.remove('active')
-    })
-  }
-})
-
 //парсим результаты поиска
 const parseSearchResults = (arr, phrase) => {
   let output = ''
@@ -234,6 +222,19 @@ document.addEventListener('click',(e) => {
   }
 })
 
+
+document.addEventListener('click', (e) => {
+  if(e.target.closest('.screen-main-person') || e.target.classList.contains('screen-main-person')) {
+    const parent = e.target.closest('.screen-main-person') || e.target
+
+    parent.querySelector('.screen-main-overlay').classList.toggle('active')
+  } else {
+    document.querySelectorAll('.screen-main-overlay').forEach(item => {
+      item.classList.remove('active')
+    })
+  }
+})
+
 let page = 1
 let lastPage
 let flag = true
@@ -279,7 +280,7 @@ const parserProfiles = (arr) => {
   return output
 }
 
-const onLoad = async (page) => {
+const loadProfiles = async (page) => {
   const { profiles } = await fetchList(page);
   const parsedResults = parserProfiles(profiles);
 
@@ -290,18 +291,18 @@ function onLoadImg(el) {
   el.classList.add('show')
 }
 
-window.addEventListener('load', () => {
-  onLoad(page)
+document.addEventListener('DOMContentLoaded', () => {
+  loadProfiles(page)
 });
 
-const updateCards = async(page) => {
-  const allProfiles = document.querySelectorAll('.screen-main-person')
-
-  allProfiles.forEach(item => {
+const updateCards = async (page) => {
+  document.querySelectorAll('.screen-main-person').forEach(item => {
     item.remove()
   })
 
-  await onLoad(page)
+  await loadProfiles(page)
+  document.querySelector('.screen-main-profiles').classList.remove('active');
+  flag = true;
 }
 
 let touchStartY = 0;
@@ -332,10 +333,10 @@ slider.addEventListener('touchend', function(event) {
         updateCards(page)
       }, 1000)
 
-      setTimeout(() => {
-        parent.classList.remove('active')
-        flag = true
-      }, 1100)
+      // setTimeout(() => {
+      //   parent.classList.remove('active')
+      //   flag = true
+      // }, 1100)
     }
   } else if (touchEndY - touchStartY < -50) {
     // свайп вверх
@@ -351,10 +352,10 @@ slider.addEventListener('touchend', function(event) {
         updateCards(page)
       }, 1000)
 
-      setTimeout(() => {
-        parent.classList.remove('active')
-        flag = true
-      }, 1100)
+      // setTimeout(() => {
+      //   parent.classList.remove('active')
+      //   flag = true
+      // }, 1100)
     }
   }
 });

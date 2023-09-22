@@ -25,7 +25,7 @@ const toScreenMain = (event) => {
   event.preventDefault()
   document.querySelector('.screen-main').classList.add('active')
   document.querySelector('.screen-start-btn').classList.remove('opened')
-  
+
   setTimeout(() => {
     document.querySelector('.screen-start').classList.remove('active')
   }, 810)
@@ -36,7 +36,7 @@ const toScreenStart = (event) => {
   document.querySelector('.screen-start-btn').classList.remove('opened')
   document.querySelector('.screen-main').classList.remove('active')
   document.querySelector('.screen-start').classList.add('active')
-  document.querySelector('.screen-main-finger').classList.remove('ui-hidden')
+  // document.querySelector('.screen-main-finger').classList.remove('ui-hidden')
 }
 
 document.querySelector('.screen-start-btn').addEventListener('click', toScreenMain)
@@ -84,7 +84,7 @@ const parsePopup = (data) => {
     nextLink.dataset.to = data.next
     nextLink.classList.add('ui-hidden')
   }
-  
+
   document.querySelector('.popups').classList.add('opened')
   document.documentElement.classList.add('popup-opened')
 }
@@ -203,6 +203,7 @@ document.querySelector('.search-form-form')
     }
 
     const res = await fetchSearch(phrase)
+
     const parsedResults = parseSearchResults(res.profiles, phrase)
     document.querySelector('.search-results').innerHTML = parsedResults
     document.querySelector('.search-drop').classList.add('opened');
@@ -220,3 +221,141 @@ document.addEventListener('click',(e) => {
     document.querySelector('.search-drop').classList.remove('opened');
   }
 })
+
+
+document.addEventListener('click', (e) => {
+  if(e.target.closest('.screen-main-person') || e.target.classList.contains('screen-main-person')) {
+    const parent = e.target.closest('.screen-main-person') || e.target
+
+    parent.querySelector('.screen-main-overlay').classList.toggle('active')
+  } else {
+    document.querySelectorAll('.screen-main-overlay').forEach(item => {
+      item.classList.remove('active')
+    })
+  }
+})
+
+let page = 1
+let lastPage
+let flag = true
+
+const fetchList = async (page) => {
+  try {
+    const response = await fetch(`//apk.farbatest.com/api/profile/get_page?page=${page}`)
+    const { status } = response;
+    const { profiles, last_page } = await response.json();
+
+    lastPage = last_page
+
+    return { status, profiles, last_page };
+  } catch (error) {
+    console.error(error);
+    return { status: 500, profiles: [] };
+  }
+};
+
+const parserProfiles = (arr) => {
+  let output = ''
+
+  if (!arr || !arr.length) {
+    output = `<div class="search-not-found">Нет результатов по запросу</div>`
+    return output
+  }
+
+  arr.forEach((el, index) => {
+    output +=
+    `
+      <div class="screen-main-person cirlce-${index+1}">
+        <div class="screen-main-overlay">
+          <div class="screen-main-name">${el.fio}</div>
+
+          <a href="javascript:void(0)" data-id="${el.id}" onclick="openPopup(${el.id})" class="screen-main-more">Узнать больше</a>
+        </div>
+
+        <img src="//apk.farbatest.com/storage/${el.photo_cropped}" alt="alt" onload="onLoadImg(this)">
+      </div>
+    `
+  })
+
+  return output
+}
+
+const loadProfiles = async (page) => {
+  const { profiles } = await fetchList(page);
+  const parsedResults = parserProfiles(profiles);
+
+  document.querySelector('.screen-main-profiles').innerHTML = parsedResults;
+};
+
+function onLoadImg(el) {
+  el.classList.add('show')
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadProfiles(page)
+});
+
+const updateCards = async (page) => {
+  document.querySelectorAll('.screen-main-person').forEach(item => {
+    item.remove()
+  })
+
+  await loadProfiles(page)
+  document.querySelector('.screen-main-profiles').classList.remove('active');
+  flag = true;
+}
+
+let touchStartY = 0;
+let touchEndY = 0;
+
+const slider = document.querySelector('.screen.screen-main');
+
+slider.addEventListener('touchstart', function(event) {
+  touchStartY = event.touches[0].clientY;
+});
+
+slider.addEventListener('touchend', function(event) {
+  const parent = document.querySelector('.screen-main-profiles')
+
+  touchEndY = event.changedTouches[0].clientY;
+
+  if (touchEndY - touchStartY > 50) {
+    // свайп вниз
+    if(!flag) return
+
+    if(page > 1) {
+      flag = false
+      page = page - 1
+
+      parent.classList.add('active')
+
+      setTimeout(() => {
+        updateCards(page)
+      }, 1000)
+
+      // setTimeout(() => {
+      //   parent.classList.remove('active')
+      //   flag = true
+      // }, 1100)
+    }
+  } else if (touchEndY - touchStartY < -50) {
+    // свайп вверх
+    if(!flag) return
+
+    if(page < lastPage) {
+      flag = false
+      page = page + 1
+
+      parent.classList.add('active')
+
+      setTimeout(() => {
+        updateCards(page)
+      }, 1000)
+
+      // setTimeout(() => {
+      //   parent.classList.remove('active')
+      //   flag = true
+      // }, 1100)
+    }
+  }
+});
