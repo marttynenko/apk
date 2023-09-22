@@ -298,8 +298,6 @@ const updateCards = async(page) => {
   })
 
   await onLoad(page)
-
-  flag = true
 }
 
 document.querySelector('.screen.screen-main').addEventListener('touchstart', handleTouchStart, false);
@@ -337,10 +335,10 @@ function handleTouchMove(evt) {
       // swipe вверх
       if(!flag) return
 
-      if(page < lastPage) {
-        flag = false
-        page = page + 1
+      flag = false
 
+      if(page < lastPage) {
+        page = page + 1
         parent.classList.add('active')
 
         setTimeout(() => {
@@ -349,28 +347,27 @@ function handleTouchMove(evt) {
 
         setTimeout(() => {
           parent.classList.remove('active')
+          flag = true
         }, 1000)
       }
 
     } else {
       /* swipe вниз */
-
       if(!flag) return
 
-      if(page > 1) {
-        flag = false
-        page = page - 1
+      flag = false
 
+      if(page > 1) {
+        page = page - 1
         parent.classList.add('active')
 
         setTimeout(() => {
           updateCards(page)
-          console.log(1)
         }, 600)
 
         setTimeout(() => {
           parent.classList.remove('active')
-          console.log(2)
+          flag = true
         }, 1000)
       }
     }

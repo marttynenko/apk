@@ -2287,7 +2287,7 @@ span.invalid {
   max-width: 250px;
   width: 100%;
   height: 75px;
-  line-height: 70px;
+  line-height: 71px;
   background-color: transparent;
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
@@ -2989,11 +2989,11 @@ span.invalid {
   .screen-main-more {
     font-size: 20px;
     height: 65px;
-    line-height: 60px;
+    line-height: 61px;
     border-radius: 20px;
   }
 }
-@container circle (max-width: 350px) {
+@container circle (max-width: 355px) {
   .screen-main-overlay {
     font-size: 30px;
   }
@@ -3005,11 +3005,12 @@ span.invalid {
   .screen-main-more {
     font-size: 18px;
     height: 50px;
-    line-height: 45px;
+    line-height: 46px;
     border-radius: 10px;
+    max-width: 150px;
   }
 }
-@container circle (max-width: 300px) {
+@container circle (max-width: 305px) {
   .screen-main-overlay {
     font-size: 28px;
   }
@@ -3021,11 +3022,11 @@ span.invalid {
   .screen-main-more {
     font-size: 18px;
     height: 45px;
-    line-height: 40px;
+    line-height: 41px;
     border-radius: 10px;
   }
 }
-@container circle (max-width: 250px) {
+@container circle (max-width: 255px) {
   .screen-main-overlay {
     font-size: 20px;
   }
@@ -3037,12 +3038,12 @@ span.invalid {
   .screen-main-more {
     font-size: 16px;
     height: 40px;
-    line-height: 35px;
+    line-height: 36px;
     border-radius: 10px;
-    max-width: 150px;
+    max-width: 120px;
   }
 }
-@container circle (max-width: 200px) {
+@container circle (max-width: 205px) {
   .screen-main-overlay {
     font-size: 18px;
   }
@@ -3052,13 +3053,13 @@ span.invalid {
   }
 
   .screen-main-more {
-    font-size: 16px;
+    font-size: 14px;
     height: 40px;
-    line-height: 35px;
+    line-height: 36px;
     border-radius: 10px;
   }
 }
-@container circle (max-width: 150px) {
+@container circle (max-width: 155px) {
   .screen-main-overlay {
     font-size: 16px;
   }
@@ -3068,9 +3069,10 @@ span.invalid {
   }
 
   .screen-main-more {
-    font-size: 14px;
-    height: 45px;
-    line-height: 35px;
+    font-size: 12px;
+    height: 30px;
+    line-height: 26px;
     border-radius: 10px;
+    max-width: 100px;
   }
 }
