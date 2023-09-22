@@ -313,12 +313,10 @@ slider.addEventListener('touchstart', function(event) {
   touchStartY = event.touches[0].clientY;
 });
 
-slider.addEventListener('touchmove', function(event) {
-  touchEndY = event.touches[0].clientY;
-});
-
 slider.addEventListener('touchend', function(event) {
   const parent = document.querySelector('.screen-main-profiles')
+
+  touchEndY = event.changedTouches[0].clientY;
 
   if (touchEndY - touchStartY > 50) {
     // свайп вниз

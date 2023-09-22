@@ -223,6 +223,7 @@
       width: 100%;
       height: 100%;
       opacity: 0;
+      transform: scale(1.1);
       transition: opacity .5s ease, transform .5s ease;
 
       &.show {
@@ -724,144 +725,144 @@
 }
 
 .cirlce-1 {
-  width: calc((418 / 3840) * 100%);
+  width: 10.8%;
   aspect-ratio: 1;
-  left: calc((154 / 3840) * 100%);
-  top: calc((384 / 2160) * 100%);
+  left: 4%;
+  top: 17.7%;
   font-size: 50%;
 }
 
 .cirlce-2 {
-  width: calc((352 / 3840) * 100%);
+  width: 9.1%;
   aspect-ratio: 1;
-  left: calc((662 / 3840) * 100%);
-  top: calc((152 / 2160) * 100%);
+  left: 17.2%;
+  top: 7%;
 }
 
 .cirlce-3 {
-  width: calc((395 / 3840) * 100%);
+  width: 10.2%;
   aspect-ratio: 1;
-  left: calc((1222 / 3840) * 100%);
-  top: calc((197 / 2160) * 100%);
+  left: 31.8%;
+  top: 9.1%;
 }
 
 .cirlce-4 {
-  width: calc((388 / 3840) * 100%);
+  width: 10.1%;
   aspect-ratio: 1;
-  left: calc((1726 / 3840) * 100%);
-  top: calc((73 / 2160) * 100%);
+  left: 44.9%;
+  top: 3.3%;
 }
 
 .cirlce-5 {
-  width: calc((462 / 3840) * 100%);
+  width: 12%;
   aspect-ratio: 1;
-  left: calc((2292 / 3840) * 100%);
-  top: calc((118 / 2160) * 100%);
+  left: 59.6%;
+  top: 5.4%;
 }
 
 .cirlce-6 {
-  width: calc((463 / 3840) * 100%);
+  width: 12%;
   aspect-ratio: 1;
-  left: calc((2877 / 3840) * 100%);
-  top: calc((152 / 2160) * 100%);
+  left: 74.9%;
+  top: 7%;
 }
 
 .cirlce-7 {
-  width: calc((336 / 3840) * 100%);
+  width: 8.75%;
   aspect-ratio: 1;
-  left: calc((345 / 3840) * 100%);
-  top: calc((889 / 2160) * 100%);
+  left: 8.9%;
+  top: 41.1%;
 }
 
 .cirlce-8 {
-  width: calc((417 / 3840) * 100%);
+  width: 10.8%;
   aspect-ratio: 1;
-  left: calc((805 / 3840) * 100%);
-  top: calc((593 / 2160) * 100%);
+  left: 20.9%;
+  top: 27.4%;
 }
 
 .cirlce-9 {
-  width: calc((269 / 3840) * 100%);
+  width: 7%;
   aspect-ratio: 1;
-  left: calc((1434 / 3840) * 100%);
-  top: calc((696 / 2160) * 100%);
+  left: 37.3%;
+  top: 32.2%;
 }
 
 .cirlce-10 {
-  width: calc((462 / 3840) * 100%);
+  width: 12%;
   aspect-ratio: 1;
-  left: calc((1853 / 3840) * 100%);
-  top: calc((535 / 2160) * 100%);
+  left: 48.2%;
+  top: 24.7%;
 }
 
 .cirlce-11 {
-  width: calc((462 / 3840) * 100%);
+  width: 12%;
   aspect-ratio: 1;
-  left: calc((2486 / 3840) * 100%);
-  top: calc((651 / 2160) * 100%);
+  left: 64.7%;
+  top: 30.1%;
 }
 
 .cirlce-12 {
-  width: calc((535 / 3840) * 100%);
+  width: 13.9%;
   aspect-ratio: 1;
-  left: calc((3056 / 3840) * 100%);
-  top: calc((671 / 2160) * 100%);
+  left: 79.5%;
+  top: 31%;
 }
 
 .cirlce-13 {
-  width: calc((438 / 3840) * 100%);
+  width: 11.4%;
   aspect-ratio: 1;
-  left: calc((182 / 3840) * 100%);
-  top: calc((1392 / 2160) * 100%);
+  left: 4.73%;
+  top: 64.4%;
 }
 
 .cirlce-14 {
-  width: calc((439 / 3840) * 100%);
+  width: 11.4%;
   aspect-ratio: 1;
-  left: calc((714 / 3840) * 100%);
-  top: calc((1226 / 2160) * 100%);
+  left: 18.5%;
+  top: 56.7%;
 }
 
 .cirlce-15 {
-  width: calc((313 / 3840) * 100%);
+  width: 8.15%;
   aspect-ratio: 1;
-  left: calc((1249 / 3840) * 100%);
-  top: calc((1022 / 2160) * 100%);
+  left: 32.5%;
+  top: 47.3%;
 }
 
 .cirlce-16 {
-  width: calc((387 / 3840) * 100%);
+  width: 10%;
   aspect-ratio: 1;
-  left: calc((1670 / 3840) * 100%);
-  top: calc((1142 / 2160) * 100%);
+  left: 43.4%;
+  top: 52.8%;
 }
 
 .cirlce-17 {
-  width: calc((317 / 3840) * 100%);
+  width: 8.25%;
   aspect-ratio: 1;
-  left: calc((2230 / 3840) * 100%);
-  top: calc((1103 / 2160) * 100%);
+  left: 58%;
+  top: 51%;
 }
 
 .cirlce-18 {
-  width: calc((485 / 3840) * 100%);
+  width: 12.6%;
   aspect-ratio: 1;
-  left: calc((2090 / 3840) * 100%);
-  top: calc((1551 / 2160) * 100%);
+  left: 54.4%;
+  top: 71.8%;
 }
 
 .cirlce-19 {
-  width: calc((331 / 3840) * 100%);
+  width: 8.6%;
   aspect-ratio: 1;
-  left: calc((2800 / 3840) * 100%);
-  top: calc((1316 / 2160) * 100%);
+  left: 72.9%;
+  top: 60.9%;
 }
 
 .cirlce-20 {
-  width: calc((472 / 3840) * 100%);
+  width: 12.2%;
   aspect-ratio: 1;
-  left: calc((1231 / 3840) * 100%);
-  top: calc((1451 / 2160) * 100%);
+  left: 32%;
+  top: 67.1%;
 }
 
 @container circle (max-width: 550px) {
