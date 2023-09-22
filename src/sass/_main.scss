@@ -203,7 +203,7 @@
     transition: opacity 1s ease, transform 1s ease;
 
     &.active {
-      transform: scale(1.25);
+      transform: scale(1.1);
       opacity: 0;
     }
   }
@@ -223,10 +223,11 @@
       width: 100%;
       height: 100%;
       opacity: 0;
-      transition: opacity .4s ease;
+      transition: opacity .5s ease, transform .5s ease;
 
       &.show {
         opacity: 1;
+        transform: scale(1);
       }
     }
   }

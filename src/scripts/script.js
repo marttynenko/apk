@@ -304,80 +304,59 @@ const updateCards = async(page) => {
   await onLoad(page)
 }
 
-document.querySelector('.screen.screen-main').addEventListener('touchstart', handleTouchStart, false);
-document.querySelector('.screen.screen-main').addEventListener('touchmove', handleTouchMove, false);
+let touchStartY = 0;
+let touchEndY = 0;
 
-var xDown = null;
-var yDown = null;
+const slider = document.querySelector('.screen.screen-main');
 
-function getTouches(evt) {
-  return evt.touches || // чистый API JS
-  evt.originalEvent.touches; // jQuery
-}
+slider.addEventListener('touchstart', function(event) {
+  touchStartY = event.touches[0].clientY;
+});
 
-function handleTouchStart(evt) {
-  const firstTouch = getTouches(evt)[0];
-  xDown = firstTouch.clientX;
-  yDown = firstTouch.clientY;
-};
+slider.addEventListener('touchmove', function(event) {
+  touchEndY = event.touches[0].clientY;
+});
 
-function handleTouchMove(evt) {
-  if ( ! xDown || ! yDown ) {
-    return;
-  }
-
-  var xUp = evt.touches[0].clientX;
-  var yUp = evt.touches[0].clientY;
-
-  var xDiff = xDown - xUp;
-  var yDiff = yDown - yUp;
-
+slider.addEventListener('touchend', function(event) {
   const parent = document.querySelector('.screen-main-profiles')
 
-  if ( Math.abs( xDiff ) < Math.abs( yDiff ) ) {
-    if ( yDiff > 0 ) {
-      // swipe вверх
-      if(!flag) return
+  if (touchEndY - touchStartY > 50) {
+    // свайп вниз
+    if(!flag) return
 
-      if(page < lastPage) {
-        flag = false
-        page = page + 1
+    if(page > 1) {
+      flag = false
+      page = page - 1
 
-        parent.classList.add('active')
+      parent.classList.add('active')
 
-        setTimeout(() => {
-          updateCards(page)
-        }, 1000)
+      setTimeout(() => {
+        updateCards(page)
+      }, 1000)
 
-        setTimeout(() => {
-          parent.classList.remove('active')
-          flag = true
-        }, 1100)
-      }
+      setTimeout(() => {
+        parent.classList.remove('active')
+        flag = true
+      }, 1100)
+    }
+  } else if (touchEndY - touchStartY < -50) {
+    // свайп вверх
+    if(!flag) return
 
-    } else {
-      /* swipe вниз */
-      if(!flag) return
+    if(page < lastPage) {
+      flag = false
+      page = page + 1
 
-      if(page > 1) {
-        flag = false
-        page = page - 1
+      parent.classList.add('active')
 
-        parent.classList.add('active')
+      setTimeout(() => {
+        updateCards(page)
+      }, 1000)
 
-        setTimeout(() => {
-          updateCards(page)
-        }, 1000)
-
-        setTimeout(() => {
-          parent.classList.remove('active')
-          flag = true
-        }, 1100)
-      }
+      setTimeout(() => {
+        parent.classList.remove('active')
+        flag = true
+      }, 1100)
     }
   }
-
-  /* свайп был, обнуляем координаты */
-  xDown = null;
-  yDown = null;
-};
+});
